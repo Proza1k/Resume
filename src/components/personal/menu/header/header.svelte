@@ -2,7 +2,7 @@
   import Dictionary from "../../../../helpers/Dictionary.helper"
 </script>
 
-<img src="/img/avatar.png" alt="avatar" class="avatar" />
+<img src="./img/avatar.png" alt="avatar" class="avatar" />
 <h3>{Dictionary.name}</h3>
 <h4>Age: 08/30/2003</h4>
 

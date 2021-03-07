@@ -2,7 +2,7 @@
   import Table from "./table.svelte"
 
   const getSrcImage = (card) => {
-    return '/img/frontend/' + card.image + '.png'
+    return './img/frontend/' + card.image + '.png'
   }
 
   let cards = [
