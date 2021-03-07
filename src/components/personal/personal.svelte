@@ -2,6 +2,8 @@
   import { writable } from "svelte/store";
 
   import Box from "../box/box.svelte";
+  import Backend from "./table/backend.svelte";
+  import Contact from "./table/contact.svelte";
   import Header from "./menu/header/header.svelte";
   import TabPanel from "./table/tab-panel.svelte";
   import Frontend from "./table/frontend.svelte";
@@ -14,7 +16,12 @@
     },
     {
       name: "Backend",
+      component: Backend,
     },
+    {
+      name: "Contact",
+      component: Contact
+    }
   ];
 
   const onClick = (spinner) => {
@@ -40,15 +47,23 @@
   </div>
 </Box>
 <TabPanel {spinners}>
-  {#if $flag === true}
-    <h4>HI! MY NAME IS YAROSLAV</h4>
-  {:else}
-   <h4>{$selected.name}</h4>
-  {/if}
-  <svelte:component this={$selected.component} />
+  <div class="header">
+    {#if $flag === true}
+      <h2>HI! MY NAME IS YAROSLAV</h2>
+    {:else}
+      <h2>{$selected.name}</h2>
+    {/if}
+  </div>
+  <Box>
+    <svelte:component this={$selected.component} />
+  </Box>
 </TabPanel>
 
 <style>
+  .header {
+    border-bottom: 1px solid #919191;
+  }
+
   .menu {
     width: 300px;
     display: flex;
