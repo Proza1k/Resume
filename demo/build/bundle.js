@@ -906,7 +906,7 @@ var app = (function () {
     	validate_slots("Backend", slots, []);
 
     	const getSrcImage = card => {
-    		return "/img/backend/" + card.image + ".png";
+    		return "./img/backend/" + card.image + ".png";
     	};
 
     	let cards = [{ name: "SQL", image: "sql" }];
@@ -1186,7 +1186,7 @@ var app = (function () {
     			t2 = space();
     			h4 = element("h4");
     			h4.textContent = "Age: 08/30/2003";
-    			if (img.src !== (img_src_value = "/img/avatar.png")) attr_dev(img, "src", img_src_value);
+    			if (img.src !== (img_src_value = "./img/avatar.png")) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", "avatar");
     			attr_dev(img, "class", "avatar svelte-1dhfoyn");
     			add_location(img, file$4, 4, 0, 89);
@@ -1560,7 +1560,7 @@ var app = (function () {
     	validate_slots("Frontend", slots, []);
 
     	const getSrcImage = card => {
-    		return "/img/frontend/" + card.image + ".png";
+    		return "./img/frontend/" + card.image + ".png";
     	};
 
     	let cards = [
