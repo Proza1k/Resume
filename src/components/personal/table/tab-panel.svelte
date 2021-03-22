@@ -1,10 +1,10 @@
 <script>
-  import Box from "../../box/box.svelte";
+  import Box from "../../box/box.svelte"
 </script>
 
 <Box>
   <div class="tab-panel">
-      <slot />
+    <slot />
   </div>
 </Box>
 

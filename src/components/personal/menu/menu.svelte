@@ -1,6 +1,6 @@
 <script>
-  import Box from "../../box/box.svelte";
-  import Header from "./header/header.svelte";
+  import Box from "../../box/box.svelte"
+  import Header from "./header/header.svelte"
 </script>
 
 <Box>

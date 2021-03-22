@@ -1,15 +1,20 @@
 <script>
-  import { writable } from "svelte/store";
+  import { writable } from "svelte/store"
 
-  import Box from "../box/box.svelte";
-  import Backend from "./table/backend.svelte";
-  import Contact from "./table/contact.svelte";
-  import Header from "./menu/header/header.svelte";
-  import TabPanel from "./table/tab-panel.svelte";
-  import Frontend from "./table/frontend.svelte";
-  import Selector from "./menu/body/selector/selector.svelte";
+  import Box from "../box/box.svelte"
+  import Backend from "./table/backend.svelte"
+  import Contact from "./table/contact.svelte"
+  import Header from "./menu/header/header.svelte"
+  import TabPanel from "./table/tab-panel.svelte"
+  import Frontend from "./table/frontend.svelte"
+  import Selector from "./menu/body/selector/selector.svelte"
+  import Main from "./table/main.svelte"
 
   let spinners = [
+    {
+      name: "Personal Information",
+      component: Main,
+    },
     {
       name: "Frontend",
       component: Frontend,
@@ -20,22 +25,25 @@
     },
     {
       name: "Contact",
-      component: Contact
-    }
-  ];
+      component: Contact,
+    },
+  ]
 
   const onClick = (spinner) => {
-    $selected = selectComponent(spinner, spinners);
+    $selected = selectComponent(spinner, spinners)
     flag.set(false)
-  };
+  }
 
   const selectComponent = (selectTitle, spinners) => {
-    const selected = spinners.find((spinner) => spinner.name === selectTitle);
-    return selected;
-  };
+    const selected = spinners.find((spinner) => spinner.name === selectTitle)
+    return selected
+  }
 
   let flag = writable(true)
-  let selected = writable([]);
+  let selected = writable([])
+  let defaultSelected = spinners.find(
+    (spinner) => spinner.name === "Personal Information"
+  )
 </script>
 
 <Box>
@@ -48,14 +56,14 @@
 </Box>
 <TabPanel {spinners}>
   <div class="header">
-    {#if $flag === true}
-      <h2>HI! MY NAME IS YAROSLAV</h2>
-    {:else}
-      <h2>{$selected.name}</h2>
-    {/if}
+    <h2>{$selected.name || defaultSelected.name}</h2>
   </div>
   <Box>
-    <svelte:component this={$selected.component} />
+    {#if $flag === true}
+      <svelte:component this={defaultSelected.component} />
+    {:else}
+      <svelte:component this={$selected.component} />
+    {/if}
   </Box>
 </TabPanel>
 
